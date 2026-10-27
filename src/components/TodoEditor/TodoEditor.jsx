@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { FormBox, InputBox, Btn } from "./TodoEditor.styled";
 
 class TodoEditor extends Component{
     state={
@@ -22,12 +23,12 @@ class TodoEditor extends Component{
         const {textValue} = this.state
         return(
             <>
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={textValue} onChange={(evt) => this.setState({
+            <FormBox onSubmit={this.handleSubmit}>
+                <InputBox type="text" value={textValue} onChange={(evt) => this.setState({
                     textValue: evt.target.value
                 })}/>
-                <button type="submit">Submit</button>
-            </form>
+                <Btn type="submit">Submit</Btn>
+            </FormBox>
             </>
         )
     }

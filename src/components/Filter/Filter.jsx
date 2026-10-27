@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {FilterInput} from "./Filter.styled"
 
 class Filter extends Component{
 
@@ -6,7 +7,7 @@ class Filter extends Component{
         const {onFilter} = this.props
         return(
             <>
-            <input type="text" onChange={(evt) => onFilter(evt.target.value)}/>
+            <FilterInput placeholder="Фільтр по імені" type="text" onChange={(evt) => onFilter(evt.target.value)}/>
             </>
         )
     }

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {Title} from "./Info.styled"
 
 class Info extends Component{
 
@@ -6,8 +7,8 @@ class Info extends Component{
         const  {count, done} = this.props
         return(
             <>
-            <p>Кількість:{count}</p>
-            <p>Виконано:{done}</p>
+            <Title>Кількість:{count}</Title>
+            <Title>Виконано:{done}</Title>
             </>
         )
     }

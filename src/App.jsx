@@ -13,6 +13,13 @@ class App extends Component {
     filter: "",
   };
 
+  handleCompletedTodo = (id) => {
+    this.setState((prev) => ({
+      todos:prev.todos.map(todo => todo.id===id? {...todo, completed:!todo.completed}:todo)
+    }))
+    
+  }
+
   hendleDelete = (id) => {
     this.setState((prev) => ({
       todos: prev.todos.filter((todo) => todo.id !== id),
@@ -21,7 +28,7 @@ class App extends Component {
 
   handleAppSubmit = (text) => {
     const data = {
-      id: nanoid,
+      id: nanoid(),
       text: text,
       completed: false,
     };
@@ -49,7 +56,7 @@ class App extends Component {
         <Info count={count} done={done} />
         <TodoEditor onForm={this.handleAppSubmit} />
         <Filter onFilter={this.handleFilter} />
-        <TodoList todos={filteredTodo} onDelete={this.hendleDelete} />
+        <TodoList todos={filteredTodo} onDelete={this.hendleDelete} handleCompleted={this.handleCompletedTodo}/>
       </>
     );
   }
